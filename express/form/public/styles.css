@@ -1,0 +1,58 @@
+.newname{
+    color: blue;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    border: 2px solid black;
+    padding: 5px;
+    background-color: lightgray;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    margin: 10px auto;
+    font-family: Arial, sans-serif;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+}
+
+.newemail{
+    color: green;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    border: 2px solid black;
+    padding: 5px;
+    background-color: lightgray;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    margin: 10px auto;
+    font-family: Arial, sans-serif;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+}
+
+.newanchor{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}

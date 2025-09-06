@@ -1,0 +1,150 @@
+label{
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+
+}
+
+input[type="text"], input[type="email"], textarea{
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+input[type="submit"]{
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover{
+    background-color: #45a049;
+}
+
+label.error{
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+input.error, textarea.error{
+    border: 1px solid red;
+}
+
+input.valid, textarea.valid{
+    border: 1px solid green;
+}
+
+input:focus, textarea:focus{
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+input[type="submit"]:disabled{
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+input[type="submit"]:disabled:hover{
+    background-color: #ccc;
+}
+
+input[type="submit"]:enabled:hover{
+    background-color: #45a049;
+}
+
+input[type="submit"]:focus{
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+.name, .email, .btn {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.name label, .email label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.name input, .email input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.btn {
+    text-align: right;
+}
+
+.btn button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn button:hover {
+    background-color: #45a049;
+}
+
+.btn button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+.btn button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.btn button:disabled:hover {
+    background-color: #ccc;
+}
+.btn button:enabled:hover {
+    background-color: #45a049;
+}
+.btn button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+.name, .email {
+    margin-bottom: 15px;
+}
+.name {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+a{
+    text-decoration: none;
+    color: #4CAF50;
+    font-weight: bold;
+    margin-top: 20px;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    font-size: 16px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s, color 0.3s;
+
+}
