@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EJS Template Enginer</title>
+  </head>
+  <body>
+    <%- include('../partials/navbar.ejs') %>
+    <h1>Welcome to my EJS page!</h1>
+    <h2>My Blogs:</h2>
+    <ul>
+      <% posts.forEach((p)=> { %>
+      <li>
+        <h2><%= p.title %></h2>
+        <p><%= p.content %></p>
+      </li>
+      <% }) %>
+    </ul>
+
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>
