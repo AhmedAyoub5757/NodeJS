@@ -89,17 +89,18 @@ EJS fits best when you want server-side rendering (SSR). Some real-world scenari
 
 ---
 
-## 🖼️ Visual Diagram
+## ⚖️ Comparison: EJS vs. Other Template Engines
 
-```mermaid
-flowchart TD
-    Browser[Browser] -- Request --> Express[Express.js (Server)]
-    Express -- Controller logic --> Controller[Controller]
-    Controller -- Variables --> EJS[EJS Template]
-    EJS -- Rendered HTML --> Express
-    Express -- Response (HTML) --> Browser
-```
----
+| Feature / Engine       | **EJS** (Embedded JS)                   | **Pug** (formerly Jade)            | **Handlebars**                                         |
+|------------------------|-----------------------------------------|------------------------------------|--------------------------------------------------------|
+| **Syntax Style**       | HTML + `<% %>` tags (familiar & simple) | Indented, whitespace-sensitive     | Mustache-style `{{ }}` placeholders                    |
+| **Learning Curve**     | Very easy (just HTML + JS)              | Moderate (indentation rules)       | Easy (logic-less templates)                            |
+| **Logic Support**      | Full JavaScript inside templates        | Built-in minimal JS-like logic     | Limited (helpers/extensions needed)                    |
+| **Partials / Layouts** | Yes (`include`)                         | Yes (`extends`, `block`)           | Yes (`partials`, `layouts`)                            |
+| **Readability**        | Close to normal HTML (intuitive)        | Concise but less HTML-like         | Very clean, but more restrictive                       |
+| **Popularity**         | Very popular in Express apps            | Popular but declining usage        | Still widely used in some projects                     |
+| **Best For**           | Beginners & quick SSR apps              | Developers who like minimal syntax | Projects that prefer strict separation of logic &
+
 
 ## 📌 Key Takeaways
 
