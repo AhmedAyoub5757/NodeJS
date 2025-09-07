@@ -93,13 +93,12 @@ EJS fits best when you want server-side rendering (SSR). Some real-world scenari
 
 ```mermaid
 flowchart TD
-    Browser[🌐 Browser] -- Request --> Express[⚡ Express.js (Server)]
-    Express -- Controller logic --> Controller[🧩 Controller]
-    Controller -- Variables --> EJS[📝 EJS Template]
+    Browser[Browser] -- Request --> Express[Express.js (Server)]
+    Express -- Controller logic --> Controller[Controller]
+    Controller -- Variables --> EJS[EJS Template]
     EJS -- Rendered HTML --> Express
     Express -- Response (HTML) --> Browser
-
-
+```
 ---
 
 ## 📌 Key Takeaways
