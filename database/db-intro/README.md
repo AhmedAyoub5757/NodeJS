@@ -23,12 +23,12 @@ Without databases, developers would be stuck storing data in memory or flat file
 
 ## 🏗 Database in the Full-Stack Architecture
 
-```mermaid
-flowchart LR
-    A[Frontend (React, HTML, Forms)] --> B[Backend (Node.js/Express)]
-    B -->|SQL / NoSQL Queries| C[Database]
-    C --> B
-    B --> A
+ ```mermaid
+   flowchart LR
+       A[Frontend (React, HTML, Forms)] --> B[Backend (Node.js/Express)]
+       B -->|SQL / NoSQL Queries| C[(Database)]
+       C --> B
+       B --> A
 ```
 
 - **Frontend** → User interface (collects input, displays results).
