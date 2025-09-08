@@ -25,8 +25,8 @@ Without databases, developers would be stuck storing data in memory or flat file
 
  ```mermaid
    flowchart LR
-       A[Frontend (React, HTML, Forms)] --> B[Backend (Node.js/Express)]
-       B -->|SQL / NoSQL Queries| C[(Database)]
+       A[Frontend] --> B[Backend]
+       B -->|Queries| C[(Database)]
        C --> B
        B --> A
 ```
