@@ -170,6 +170,7 @@ flowchart TD
 
     C --> E[Aggregation Pipeline]
     E --> F[$match / $group / $sort / $project]
+
     C --> G[Indexes]
     G --> H[Text / Single-field / Compound / Geo]
 ```
