@@ -159,17 +159,17 @@
 flowchart TD
     A[Database] --> B[Collections]
     B --> C[Documents]
-    C --> D[Fields (Key: Value)]
+    C --> D[Fields: key-value pairs]
 
     A -->|use myDB| A
     B -->|db.createCollection()| B
-    C -->|db.collection.insertOne()| C
-    C -->|db.collection.find()| C
-    C -->|db.collection.updateOne()| C
-    C -->|db.collection.deleteOne()| C
+    C -->|insertOne / insertMany| C
+    C -->|find / projection| C
+    C -->|updateOne / updateMany| C
+    C -->|deleteOne / deleteMany| C
 
     C --> E[Aggregation Pipeline]
-    E --> F[$match / $group / $sort / $project]
+    E --> F[$match → $group → $sort → $project]
 
     C --> G[Indexes]
     G --> H[Text / Single-field / Compound / Geo]
