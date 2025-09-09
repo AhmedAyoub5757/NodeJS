@@ -1,0 +1,87 @@
+use("practiceDB"); // Switches to (or creates) the 'practiceDB' database
+
+db.users.insertOne({
+    name: "John Doe",
+    age: 30,
+    email: "john.doe@example.com",
+    hobbies: ["gaming", "coding", "hiking"]
+}) 
+// { acknowledged: true, insertedId: ObjectId("...") }
+
+db.users.insertMany([
+    {
+        name: "Jane Smith",
+        age: 25,
+        email: "jane.smith@example.com",
+        hobbies: ["reading", "traveling", "swimming"]
+    },
+    {
+        name: "Alice Johnson",
+        age: 28,
+        email: "alice.johnson@example.com",
+        hobbies: ["cooking", "hiking"]
+    },
+    {
+        name: "Bob Brown",
+        age: 35,
+        email: "bob.brown@example.com",
+        hobbies: ["gaming", "cycling"]
+    }
+])
+// { acknowledged: true, insertedIds: { ... } }
+
+db.users.find()
+// Returns all user documents (as a cursor)
+
+db.users.find().pretty()
+// Returns all user documents, formatted for readability
+
+db.users.find({age: 25})
+// Returns the document(s) where age is 25 (Jane Smith)
+
+db.users.find(
+    {age: {$gt: 25}},
+    {name: 1, email: 1, _id: 0}
+)
+// Returns name and email of users with age > 25 (John Doe, Alice Johnson, Bob Brown)
+
+db.users.find({age: {$lt: 30}}).sort({age: 1})
+// Returns users with age < 30, sorted by age ascending (Jane Smith, Alice Johnson)
+
+db.users.updateOne(
+    {name: "John Doe"},
+    {$set: {email: "john.newemail@example.com"}}
+)
+// { acknowledged: true, matchedCount: 1, modifiedCount: 1 }
+
+db.users.find().limit(3)
+// Returns the first 3 user documents
+
+db.users.updateMany(
+    {age: {$lt: 30}},
+    {$set: {status: "young adult"}}
+)
+// { acknowledged: true, matchedCount: 2, modifiedCount: 2 }
+
+db.users.find({age: {$lt: 30}})
+// Returns users with age < 30 (now with status: "young adult")
+
+db.users.updateOne(
+  { name: "John Doe" },
+  { $pull: { hobbies: "movies" } }
+)
+// { acknowledged: true, matchedCount: 1, modifiedCount: 0 }
+// (No change, as "movies" is not in John Doe's hobbies)
+
+db.users.deleteOne({name: "Bob Brown"})
+// { acknowledged: true, deletedCount: 1 }
+
+db.users.deleteMany({ag:25})
+// { acknowledged: true, deletedCount: 0 }
+// (No documents deleted, likely typo: should be "age" not "ag")
+
+db.users.countDocuments()
+// Returns the number of documents in the users collection (should be 3 after deletion)
+
+db.users.distinct("hobbies")
+// Returns an array of all unique hobbies
