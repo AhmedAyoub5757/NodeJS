@@ -157,22 +157,18 @@
 
 ```mermaid
 flowchart TD
-    A[Database] --> B[Collections]
-    B --> C[Documents]
-    C --> D[Fields: key-value pairs]
+    A[Database]
+    B[Collections]
+    C[Documents]
+    D[Fields]
 
-    A -->|use myDB| A
-    B -->|db.createCollection()| B
-    C -->|insertOne / insertMany| C
-    C -->|find / projection| C
-    C -->|updateOne / updateMany| C
-    C -->|deleteOne / deleteMany| C
+    A --> B
+    B --> C
+    C --> D
 
-    C --> E[Aggregation Pipeline]
-    E --> F[$match → $group → $sort → $project]
-
-    C --> G[Indexes]
-    G --> H[Text / Single-field / Compound / Geo]
+    C --> E[CRUD: Insert / Find / Update / Delete]
+    C --> F[Aggregation: $match, $group, $sort, $project]
+    C --> G[Indexes: Text, Single-field, Compound, Geo]
 ```
 
 ## 🚀 Quick Workflow
