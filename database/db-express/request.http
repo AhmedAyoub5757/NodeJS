@@ -1,0 +1,13 @@
+### Test Root
+GET http://localhost:3000/
+
+### Create Todo
+POST http://localhost:3000/todos
+Content-Type: application/json
+
+{
+  "title": "Todo from REST Client"
+}
+
+### Get Todos
+GET http://localhost:3000/todos
