@@ -10,14 +10,14 @@ It focuses on **core concepts, schemas, models, CRUD operations, and testing** u
 The learning journey can be visualized like this:
 
 ```mermaid
-flowchart LR
-    Client[Client (REST Client / Browser)] -->|HTTP Request| Express[Express Route]
-    Express -->|Uses| MongooseModel[Mongoose Model]
-    MongooseModel -->|Validates with| Schema[Mongoose Schema]
-    MongooseModel -->|Reads/Writes| MongoDB[(MongoDB Database)]
-    MongoDB --> MongooseModel
-    MongooseModel --> Express
-    Express -->|HTTP Response (JSON)| Client
+flowchart TD
+    Client[REST Client / Browser] -->|HTTP Request| Express[Express Route]
+    Express -->|CRUD Operation| Mongoose[Mongoose Model]
+    Mongoose -->|Query| MongoDB[(MongoDB Database)]
+    MongoDB -->|Result| Mongoose
+    Mongoose --> Express
+    Express -->|HTTP Response| Client
+
 ```
 
 ---
