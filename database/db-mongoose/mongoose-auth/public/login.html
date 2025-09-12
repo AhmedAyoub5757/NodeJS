@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input name="email" type="email" placeholder="Email" required>
+      <input name="password" type="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+    <p id="message"></p>
+    <p style="margin-top:1rem;">Don’t have an account? 
+      <a href="register.html" style="color:#667eea;text-decoration:none;font-weight:bold;">Register</a>
+    </p>
+  </div>
+
+  <script>
+    const form = document.getElementById("loginForm");
+    const msg = document.getElementById("message");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      msg.textContent = "Logging in...";
+      msg.className = "";
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const res = await fetch("/auth/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+
+        const result = await res.json();
+        if (res.ok) {
+          msg.textContent = result.message;
+          msg.className = "success";
+          form.reset();
+        } else {
+          msg.textContent = result.message || "Login failed!";
+          msg.className = "error";
+        }
+      } catch (err) {
+        msg.textContent = "Something went wrong!";
+        msg.className = "error";
+      }
+    });
+  </script>
+</body>
+</html>

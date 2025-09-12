@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Create Account</h2>
+    <form id="registerForm">
+      <input name="username" placeholder="Username" required>
+      <input name="email" type="email" placeholder="Email" required>
+      <input name="password" type="password" placeholder="Password" required>
+      <input name="gender" placeholder="Gender">
+      <input name="phone" placeholder="Phone">
+      <button type="submit">Register</button>
+    </form>
+    <p id="message"></p>
+    <p style="margin-top:1rem;">Already have an account? 
+      <a href="login.html" style="color:#667eea;text-decoration:none;font-weight:bold;">Login</a>
+    </p>
+  </div>
+
+  <script>
+    const form = document.getElementById("registerForm");
+    const msg = document.getElementById("message");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      msg.textContent = "Registering...";
+      msg.className = "";
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const res = await fetch("/auth/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+
+        const result = await res.json();
+        if (res.ok) {
+          msg.textContent = result.message;
+          msg.className = "success";
+          form.reset();
+        } else {
+          msg.textContent = result.error || "Registration failed!";
+          msg.className = "error";
+        }
+      } catch (err) {
+        msg.textContent = "Something went wrong!";
+        msg.className = "error";
+      }
+    });
+  </script>
+</body>
+</html>
