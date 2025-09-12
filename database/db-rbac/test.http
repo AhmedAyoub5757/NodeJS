@@ -1,0 +1,81 @@
+### Register a viewer
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "viewer1",
+  "password": "123456",
+  "role": "viewer"
+}
+
+###
+
+### Register an editor
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "editor1",
+  "password": "123456",
+  "role": "editor"
+}
+
+###
+
+### Register an admin
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "admin1",
+  "password": "123456",
+  "role": "admin"
+}
+
+###
+
+### Login as editor
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "editor1",
+  "password": "123456"
+}
+
+###
+
+### Create a blog (editor required)
+POST http://localhost:5000/api/blogs?username=editor1
+Content-Type: application/json
+
+{
+  "title": "First Blog by Editor",
+  "content": "This blog is created by editor1"
+}
+
+###
+
+### View all blogs (viewer, editor, admin can all do this)
+GET http://localhost:5000/api/blogs?username=viewer1
+
+###
+
+### Update blog (only owner or admin)
+PUT http://localhost:5000/api/blogs/{{blogId}}?username=editor1
+Content-Type: application/json
+
+{
+  "title": "Updated Blog Title",
+  "content": "Editor updated their blog content"
+}
+
+###
+
+### Delete blog (only owner or admin)
+DELETE http://localhost:5000/api/blogs/{{blogId}}?username=editor1
+
+###
+
+### Admin deletes someone else’s blog
+DELETE http://localhost:5000/api/blogs/{{blogId}}?username=admin1
